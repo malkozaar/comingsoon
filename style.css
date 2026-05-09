@@ -1,0 +1,365 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #000000;
+    color: #ffffff;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 1rem;
+    max-width: 100%;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.main-text {
+    font-size: clamp(4rem, 15vw, 12rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    line-height: 0.9;
+    margin-bottom: 3rem;
+    color: #ffffff;
+    position: relative;
+}
+
+.main-text::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: #003566;
+}
+
+.status {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #003566;
+    margin-bottom: 2rem;
+    padding: 1rem 2rem;
+    border: 2px solid #003566;
+    display: inline-block;
+}
+
+.contact-info {
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    font-weight: 700;
+    color: #003566;
+    opacity: 1;
+    letter-spacing: 0.1em;
+    margin-top: 1rem;
+}
+
+/* Hover effects */
+.main-text:hover {
+    color: #003566;
+    transition: color 0.3s ease;
+}
+
+.status:hover {
+    background: #003566;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 60px;
+}
+
+.countdown-number {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 900;
+    color: #ffffff;
+    background: #003566;
+    padding: 0.5rem;
+    min-width: 50px;
+    text-align: center;
+    border: 2px solid #003566;
+    transition: all 0.3s ease;
+}
+
+.countdown-number:hover {
+    background: transparent;
+    color: #003566;
+    transform: scale(1.1);
+}
+
+.countdown-label {
+    font-size: clamp(0.6rem, 1.5vw, 0.8rem);
+    font-weight: 700;
+    color: #003566;
+    margin-top: 0.5rem;
+    letter-spacing: 0.1em;
+}
+
+/* Hide default cursor */
+body {
+    cursor: none;
+}
+
+/* Custom cursor */
+.cursor-custom {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+    mix-blend-mode: difference;
+}
+
+.cursor-custom.hover {
+    transform: scale(2);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #003566;
+    border-radius: 50%;
+    color: #003566;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-link:hover {
+    background: #003566;
+    color: #ffffff;
+    transform: scale(1.1) rotate(5deg);
+}
+
+.social-link svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover svg {
+    transform: scale(1.2);
+}
+
+.social-link::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
+}
+
+.social-link:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .main-text {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+        margin-bottom: 1.5rem;
+        line-height: 0.8;
+    }
+    
+    .main-text::after {
+        width: 50px;
+        height: 3px;
+        bottom: -0.8rem;
+    }
+    
+    .status {
+        font-size: 0.8rem;
+        padding: 0.6rem 1.2rem;
+        margin-bottom: 1.5rem;
+        letter-spacing: 0.15em;
+    }
+    
+    .countdown {
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .countdown-item {
+        min-width: 50px;
+    }
+    
+    .countdown-number {
+        font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+        padding: 0.4rem;
+        min-width: 40px;
+    }
+    
+    .countdown-label {
+        font-size: 0.5rem;
+        margin-top: 0.3rem;
+    }
+    
+    .social-links {
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .social-link {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .social-link svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .contact-info {
+        font-size: 0.7rem;
+    }
+    
+    /* Hide custom cursor on mobile */
+    body {
+        cursor: auto;
+    }
+    
+    .cursor-custom {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0.8rem;
+    }
+    
+    .main-text {
+        font-size: clamp(2rem, 15vw, 3.5rem);
+        margin-bottom: 1.2rem;
+    }
+    
+    .status {
+        font-size: 0.7rem;
+        padding: 0.5rem 1rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .countdown {
+        gap: 0.3rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .countdown-item {
+        min-width: 45px;
+    }
+    
+    .countdown-number {
+        font-size: clamp(1rem, 4vw, 1.5rem);
+        padding: 0.3rem;
+        min-width: 35px;
+    }
+    
+    .countdown-label {
+        font-size: 0.4rem;
+        margin-top: 0.2rem;
+    }
+    
+    .social-links {
+        gap: 0.8rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .social-link {
+        width: 30px;
+        height: 30px;
+        border-width: 1px;
+    }
+    
+    .social-link svg {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .contact-info {
+        font-size: 0.6rem;
+    }
+}
+
+/* Landscape mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .container {
+        padding: 0.5rem;
+    }
+    
+    .main-text {
+        font-size: clamp(2rem, 8vw, 3rem);
+        margin-bottom: 1rem;
+    }
+    
+    .status {
+        margin-bottom: 1rem;
+    }
+    
+    .countdown {
+        margin-bottom: 1rem;
+    }
+    
+    .social-links {
+        margin-bottom: 1rem;
+    }
+}
